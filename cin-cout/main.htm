@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../подсветка/styles/default.min.css">
+    <title>cin/cout</title>
+</head>
+<body>
+    <header class="header">
+        <a href="file:///C:/Users/admin/Documents/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%209%20%D0%BA%D0%BB%D0%B0%D1%81%D1%81/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D1%82%D0%B5%D0%BC/index.htm" class="return">Назад</a>
+        <div class="topic">cin/cout</div>
+    </header>
+    <div class="container">
+        <section class="about_topic">
+            <p><h1>Cout (вывод текста на консоль)</h1></p>
+            <p>С помощью cout мы можем выводить какие-либо данные на экран консоли. При создании проекта во многих IDE изначально уже написана программа:</p>    
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+                    
+                    using namespace std;
+
+                    int main()
+                    {
+                        cout << "Hello, World!";
+                        return 0;
+                    }
+                </code>
+            </pre>
+            <p>Для того чтобы использовать cin/cout нужно подключить библиотеку <bold>iostream</bold>.</p>
+            <p>Если вы хотите вывести некоторые данные + текст, то нужно использовать оператор &lt&lt. Пример:</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+                    
+                    using namespace std;
+
+                    int main()
+                    {
+                        int col_of_apple = 1;
+                        cout << "I have a " << col_of_apple <<"apple";
+                        //Что мы увидим в консоли: I have a 1 apple
+                        return 0;
+                    }
+                </code>
+            </pre>
+            <p>Иногда нужно выводить данные на следующую строку. Для этого нам нужно использовать <bold>endl</bold>.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+                    
+                    using namespace std;
+
+                    int main()
+                    {
+                        cout << "My name and surname:" << endl;
+                        cout << "Name: Ivan" << endl;
+                        cout << "Surname: Ivanovich" << endl;
+                        //Что мы увидим в консоли:
+                        //My name and surname:
+                        //Name: Ivan
+                        //Surname: Ivanovich
+                        return 0;
+                    }
+                </code>
+            </pre>
+            <p><h1>Cin (ввод данных)</h1></p>
+            <p>Cin нужен для инициализации переменных. Это самый легкий способ получить данные. Эта операция осуществляется с помощью оператора >>.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+                    
+                    using namespace std;
+
+                    int main()
+                    {
+                        int a,b,c;
+                        cin >> a >> b >> c;
+                        cout<< a << " " << b << " " << c;
+                        // Если вы введем числа 1 2 3, то на консоли мы увидим тоже самое.
+                        return 0;
+                    }
+                </code>
+            </pre>
+        </section>
+    </div>
+    <script src="../подсветка/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
