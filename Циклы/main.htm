@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../подсветка/styles/default.min.css">
+    <title>Циклы</title>
+</head>
+<body>
+    <header class="header">
+        <a href="file:///C:/Users/admin/Documents/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%209%20%D0%BA%D0%BB%D0%B0%D1%81%D1%81/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D1%82%D0%B5%D0%BC/index.htm" class="return">Назад</a>
+        <div class="topic">Циклы</div>
+    </header>
+    <div class="container">
+        <section class="about_topic">
+                <h1>Применение циклов</h1>
+                <p>Циклы нужны для того, чтобы повторять несколько раз какие-либо операции. Чтобы не писать самому все необходимы действия, нужно использовать циклы.</p>
+                <h1>Цикл for</h1>
+                <p>Обычно цикл <bold>for</bold> используют, когда точно знают сколько итераций необходимо. Итерацией цикла называется один проход этого цикла.</p>
+                <img src="images/for.png" alt="" class = "img">
+                <pre>
+                    <code data-lang="cpp">
+                        #include &lt;iostream&gt;
+                        
+                        using namespace std;
+    
+                        int main()
+                        {
+                            for(действие до начала цикла; условие выполнения циклы; действия после каждой итерации){
+                                // Тело цикла
+                            }
+                            return 0;
+                        }
+                    </code>
+                </pre>
+                <p>Обычно в действиях до начала циклы объявляют счетчики, а в действиях после каждой итерации меняют счетчик.</p>
+                <pre>
+                    <code data-lang="cpp">
+                        #include &lt;iostream&gt;
+                        
+                        using namespace std;
+    
+                        int main()
+                        {
+                            for(int i = 0; i < 10; i++)
+                            {
+                                // Тело цикла
+                            }
+                            return 0;
+                        }
+                    </code>
+                </pre>
+                <p>Мы объявили счетчик, написали условие i < 10. После каждой итерации счетчик будет увеличиваться на 1. Из этого следует, что цикл сделает 10 итерации.</p>
+                <p>Пример программы: </p>
+                <pre>
+                    <code data-lang="cpp">
+                        #include &lt;iostream&gt;
+                        
+                        using namespace std;
+    
+                        int main()
+                        {
+                            int sum = 0;
+                            for(int i = 0 ;i < 10; i++)
+                            {
+                                sum += i;
+                            }
+                            cout << sum;
+                            // Данная программа считает сумму чисел от 0 до 9;
+                            return 0;
+                        }
+                    </code>
+                </pre>
+                <p>Нам необязательно заполнять все выражения цикла.</p>
+                <pre>
+                    <code data-lang="cpp">
+                        #include &lt;iostream&gt;
+                        
+                        using namespace std;
+    
+                        int main()
+                        {
+                            int i = 0;
+                            for(;i < 10;)
+                            {
+                                cout << i;
+                                i++;
+                            }
+                            // В данном случае мы написали только условие для цикла.
+                            // Если мы не напишем условие в цикле, то цикл будет бесконечным.
+                            for(int k = 0;;k++)
+                            {
+                                // Программа зависнет, т.к у нас нет условия.
+                            }
+                            // Если условие в цикле будет выполняться всегда, то цикл тоже будет бесконечным.
+                            return 0;
+                        }
+                    </code>
+                </pre>
+                <p>Также мы можем делать вложенные циклы.</p>
+                <img src="images/for-for.png" alt="" class = "img">
+                <pre>
+                    <code data-lang="cpp">
+                        #include &lt;iostream&gt;
+                        
+                        using namespace std;
+    
+                        int main()
+                        {
+                            for(int i = 1;i < 10;i++)// Цикл 1
+                            {
+                                for(int j = 1; j < 10;j++)// Цикл 2
+                                {
+                                    cout << i * j;
+                                }
+                            }
+                            // Т.к цикл 1 сделать 9 итерации, то цикл 2 сработает 9 раз.
+                            // В каждой итерации цикла 1 цикл 2 будет делать по 9 итерации.
+                            // Данная программа выводит таблицу умножения
+                            return 0;
+                        }
+                    </code>
+                </pre>
+                <h1>While</h1>
+                <p>Если в цикле <bold>for</bold> мы могли вписывать несколько параметров, то в цикле <bold>while</bold> мы можем написать только условие. Цикл while выполняет некоторый код, пока его условие истинно, то есть возвращает true.</p>
+                <p>После ключевого слова while в скобках идет условное выражение, которое возвращает true или false. Пока условное выражение равно true, цикл выполняется</p>
+                <pre>
+                    <code data-lang="cpp">
+                        #include &lt;iostream&gt;
+                        
+                        using namespace std;
+    
+                        int main()
+                        {
+                            int i = 1;
+                            while(i < 10)
+                            {
+                                // Тело цикла
+                            }
+                            // Цикл сделает 9 итерации
+                            return 0;
+                        }
+                    </code>
+                </pre>
+                <h1>Операторы continue и break</h1>
+                <p>Иногда нужно остановить цикл до его завершения. Для этого можно использовать оператор <bold>break</bold>.</p>
+                <img src="images/break.png" alt="" class = "img">
+                <pre>
+                    <code data-lang="cpp">
+                        #include &lt;iostream&gt;
+                        
+                        using namespace std;
+    
+                        int main()
+                        {
+                            int sum = 0;
+                            for(int i = 0;i < 10;i++)
+                            {
+                                sum += i;
+                                if(sum > 5)
+                                    break;
+                            }
+                            // Когда сумма станет больше 5, цикл остановится
+                            return 0;
+                        }
+                    </code>
+                </pre>
+                <p>Оператор <bold>continue</bold> производит переход к следующей итерации.</p>
+                <img src="images/continue.png" alt="" class = "img">
+                <pre>
+                    <code data-lang="cpp">
+                        #include &lt;iostream&gt;
+                        
+                        using namespace std;
+    
+                        int main()
+                        {
+                            int col = 0;
+                            for(int i = 0;i < 10;i++)
+                            {
+                                if(i % 2 == 0)
+                                {
+                                    col++;
+                                }else {
+                                    continue;
+                                }
+                            }
+                            // Программа посчитает количество четных чисел
+                            return 0;
+                        }
+                    </code>
+                </pre>
+            </section>
+    </div>
+    <script src="../подсветка/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
