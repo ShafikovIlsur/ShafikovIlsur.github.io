@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../подсветка/styles/default.min.css">
+    <title>функции</title>
+</head>
+<body>
+    <header class="header">
+        <a href="file:///C:/Users/admin/Documents/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%209%20%D0%BA%D0%BB%D0%B0%D1%81%D1%81/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D1%82%D0%B5%D0%BC/index.htm" class="return">Назад</a>
+        <div class="topic">Процедуры и функции</div>
+    </header>
+    <div class="container">
+        <section class="about_topic">
+            <h1>Применение</h1>
+            <p>Сегодня мы поговорим о функциях в C++. Очень часто в программировании необходимо выполнять одни и те же действия. Например, нам в разных местах кода нужно узнать НОД некоторых чисел. Чтобы не писать 2 раза алгоритм, можно написать функцию и использовать ее.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+
+                    using namespace std;
+
+                    int GCD(int a, int b)
+                    {
+                        while(a * b > 0)
+                        {
+                            if(a > b)
+                            {
+                                a %= b;
+                            }else{
+                                b %= a;
+                            }
+                        }
+                        return a + b;
+                    }
+                    
+
+                    int main()
+                    {
+                        int num1 = 3, num2 = 6;
+                        int num3 = 28, num4 = 196;
+                        cout<< GCD(num1,num2) << endl << GCD(num3,num4);
+                        return 0;
+                    }
+                </code>
+            </pre>
+            <p>Мы здесь использовали функцию и не переписывали алгоритм второй раз.</p>
+            <h1>Синтаксис</h1>
+            <p>Любая функция в C++ должна возвращать какое-то значение. Для этого мы используем <bold>return</bold>. Чтобы определить какой тип данных мы возвращаем, мы объявляем функцию с типа данных, а после название функции.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+
+                    using namespace std;
+
+                    int foo(){
+                        return 1;
+                    }
+                    // создали функцию, которая возвращает целое число.
+                    char foo2()
+                    {
+                        return 'a';
+                    }
+                    // создали функцию, которая возвращает символ.
+                    
+                </code>
+            </pre>
+            <p>Функция всегда должна что-либо возвращать. Но иногда бывает, что нам ничего не нужно возвращать. Для этого существует <bold>void</bold>. Указав <bold>void</bold> вместо типа данных, мы создаем функцию, которая ничего не должна возвращать. Такие функии называются процедурами.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+
+                    using namespace std;
+
+                    void foo()
+                    {
+                        cout << "Hello" << endl;
+                    }
+                    // Создали процедуру, которая ничего не возращает
+                    
+                </code>
+            </pre>
+            <p>Иногда нам нужно, чтобы функция работала с данными, которые мы ей передадим. Для этого при создании функции мы указываем ее параметры.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+
+                    using namespace std;
+
+                    void foo(int num1) // параметр 
+                    {
+                        // Мы получим какое-либо число и сможем вывести его
+                        cout << num1<< endl;
+                    }                    
+                </code>
+            </pre>
+            <p>Параметров может быть много. Чтобы перечислить все параметры, нужно для каждого прописать его тип данных.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+
+                    using namespace std;
+
+                    void foo(int num1, int num2)
+                    {
+                        cout << num1 + num2<< endl;
+                    }                    
+                </code>
+            </pre>
+            <p>Мы научились создавть процедуры и функции, но как ими пользоваться? Следующим образом:</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+
+                    using namespace std;
+
+                    void foo(int num1, int num2)
+                    {
+                        cout << num1 + num2<< endl;
+                    }
+                    
+                    int main()
+                    {
+                        foo(5,6); // Пишем название функции, а после передаем ей аргументы
+                        return 0;
+                    }
+                </code>
+            </pre>
+            <p>Данные, которые мы передаем в функцию, называются аргументами. Отличие аргумента от параметра в том, что параметр принимает аргумент функции, а аргумент - это данные, которые мы отправляем в функцию.</p>
+            <p>Мы можем вызывать функции в других функциях.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+
+                    using namespace std;
+
+                    void foo(int num1, int num2)
+                    {
+                        cout << num1 + num2<< endl;
+                    }
+
+                    void foo2()
+                    {
+                        cout << "sum: ";
+                        foo(5,6);
+                    }
+                    
+                    int main()
+                    {
+                        foo2();
+                        return 0;
+                    }
+                </code>
+            </pre>
+            <p>Значение, которое функция вернула, можно присваивать другим переменным.</p>
+            <pre>
+                <code data-lang="cpp">
+                    #include &lt;iostream&gt;
+
+                    using namespace std;
+
+                    int sum(int a, int b)
+                    {
+                        return a + b;
+                    }
+                    
+                    int main()
+                    {
+                        int d = sum(5,5); // Теперь в d хранится 10
+                        return 0;
+                    }
+                </code>
+            </pre>
+            <h1>Заключение</h1>
+            <p>Таким образом, вы научились импользовать функции и процедуры. Теперь ваш код станет болле удобным.</p>
+        </section>
+    </div>
+
+    <script src="../подсветка/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
